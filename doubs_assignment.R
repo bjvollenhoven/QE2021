@@ -42,7 +42,8 @@ dim(spp)
 # 3. Apply the calculation. -----------------------------------------------
 bray_curtis <- vegdist(spp, binary = FALSE, diag = TRUE) #used binary = false for abundance data when calculating dissimilarity index and apply the Bray-Curtis index.
 bray <- as.matrix((bray_curtis)) #transformes the data back into a data matrix. 
-
+dim(bray)
+bray
 
 # 4. Explain the meaning of the results in broad terms. -------------------
 #The results show how dissimilar one site is to another. The further sites are 
@@ -88,7 +89,7 @@ pa <- (decostand(spp, method = "pa")) #converts the abundance data to presence/a
 pa
 
 sorensen <- vegdist(spp, binary = TRUE) #binary = TRUE is used for presence absence data to produce a dissimilarity index and apply sorenson's index. 
-sorensen_df <- as.matrix(as.matrix(sorensen))
+sorensen_df <- as.matrix((sorensen))
 dim(sorensen_df)
 view(sorensen_df) 
 
