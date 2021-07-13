@@ -125,8 +125,9 @@ cleanplot.pca(bird_pca, scaling = 2)
 # The third group (sites 32-45), showed the inverse of the first group with their highest
 # values being EXP, SLP, ELE, and CP. Their lowest values were TD, T2C, ASP, and HC. The 
 # final group (sites 46-50) had their highest values in SC and GC with their lowest in 
-# TFV, CH, T1C, FHD, SDDB, and TBA.
-#Overall, the change of a tree dominated landscape to shrub dominated landscape can be seen
+# TFV, CH, T1C, FHD, SDDB, and TBA. Majority of the influence on variances within the ordination
+# was due to SDDB, TBA, and MDB.
+# Overall, the change of a tree dominated landscape to shrub dominated landscape can be seen
 # with an increase in elevation. 
 
 # In the scaling 2 biplot, correlations between variables. The variables can be
@@ -167,6 +168,9 @@ alpine_pca
 summary(alpine_pca)
 #The highest species score in PC1 was Form, and the lowest was Slope. 
 
+round(sum(alpine_pca$CA$eig[1:3]) / sum(alpine_pca$CA$eig) * 100, 1)
+# #83.2% of variation is explained in the first three PC's
+
 cleanplot.pca(alpine_pca, scaling = 1)
 cleanplot.pca(alpine_pca, scaling = 2)
 
@@ -197,7 +201,9 @@ cleanplot.pca(alpine_pca, scaling = 2)
 # Concave regions offer protection from external stressors and have lower rates of soil erosion. 
 # Concave regions may also have increased water input as a result of water draining into the 
 # area allowing the soil to have a higher moisture content, facilitating plant growth.  
-
-
+# Snow pack thermodynamic is strongly influenced by slope, which in turn affects snow accumulation
+# and snow melting. Snow packing sensitivity to climate change may also change over relatively
+# short distances depending on the aspect. This could explain the negative correlation seen between 
+# mean snowmelt and aspect + slope inclination. 
 
 
