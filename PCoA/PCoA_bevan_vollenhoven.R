@@ -36,7 +36,7 @@ summary(pcoa)
 # there are no species scores as individual species are not represented in dissimilarity
 # matrix. Only dissimilarity between sites is present. 
 
-pcoa <- capscale(spe ~ 1, distance = "bray") #
+pcoa <- capscale(spe ~ 1, distance = "bray") 
 pcoa
 summary(pcoa)
 
@@ -45,8 +45,8 @@ round(sum(pcoa$CA$eig[1:3]) / sum(pcoa$CA$eig) * 100, 2)
 # first three eigenvalues. 
 
 par(mfrow = c(1, 2))
-plot(spe_pcoa, scaling = 1, main = "PCoA fish abundances - biplot scaling 1")
-plot(spe_pcoa, scaling = 2, main = "PCoA fish abundances - biplot scaling 2")
+plot(pcoa, scaling = 1, main = "PCoA fish abundances - biplot scaling 1")
+plot(pcoa, scaling = 2, main = "PCoA fish abundances - biplot scaling 2")
 
 pl1 <- ordiplot(pcoa, type = "none", scaling = 1, main = "PCoA fish abundances - biplot scaling 1")
 points(pl1, "sites", pch = 21, cex = 1.75, col = "grey80", bg = "grey80")
