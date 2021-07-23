@@ -182,20 +182,34 @@ par(mfrow = c(2, 2))
 stressplot(nmds, main = "Shepard plot") # Stress plot (R^2 gives relation...)
 ordiplot(nmds, type = "t", cex = 1.5, main = paste0("nMDS stress = ", 
                                                         round(nmds$stress, 2))) 
-# shows observed dissimilarities 
-# shows relation ship between species and rank. Therefore, keeping in mind the low
-# stress value, 
+# The Shepard plot shows the relationship between species and rank. A the lows stress
+# value is an indication of a small ordinations in which the the scatter of points 
+# from the line of best fit in the Shepard plot is low. As seen in our Shepard plot,
+# scatter of points from the center line of best fit is low. This indicates that 
+# we can have confidence in our ordination results. 
 
 gof = goodness(nmds)
 plot(nmds, type = "t", main = "Goodness of fit") # efficiency in capturing 
 points(nmds, display = "sites", cex = gof * 200) # bigger bubbles indicate a worse fit
+# The goodness of fit is another plot that is used to evaluate the confidence we can have 
+# in the ordination produced. The size of the bubble around each site indicates to
+# the level of confidence we can in seeing fair and accurate ordinations over the 
+# the two dimensional space. Majority of the bubbles of each site are fairly the 
+# same size, however bigger bubbles indicate to less confidence being had in our 
+# ordination. While these bubbles aren't excessively large, they could be of that 
+# size due to our stress being close to 0.2. 
+
 
 par(mfrow = c(1, 1))
-pl <- ordiplot(nmds, type = "none", main = "nMDS fish abundances ")
+pl <- ordiplot(nmds, type = "none", main = "nMDS dune abundances ")
 points(pl, "sites", pch = 21, cex = 1.75, col = "grey80", bg = "grey80")
 points(pl, "species", pch = 21, col = "turquoise", arrows = TRUE)
 text(pl, "species", col = "blue4", cex = 0.9)
 text(pl, "sites", col = "red4", cex = 0.9)
+
+# With the testing of the ordination plot done previously we are now able to
+# interrupt the NMDS biplot.  The sites plotted close together are more similar 
+# than those plotted further away. 
 
 # CA ---------------------------------------------------------------------
 
